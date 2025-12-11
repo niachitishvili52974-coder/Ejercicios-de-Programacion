@@ -30,6 +30,7 @@ public class Main {
                     System.out.println("2.Defensa");
                     System.out.println("3.Centrocampista");
                     System.out.println("4.Delantero");
+                    opcion=sc.nextInt();
                     System.out.println("Elige rol:  ");
                     int rol=sc.nextInt();
                     Integer.parseInt(sc.nextLine());
@@ -56,6 +57,7 @@ public class Main {
                     System.out.println("2.Defensa");
                     System.out.println("3.Centrocampista");
                     System.out.println("4.Delantero");
+                    opcion=sc.nextInt();
                     System.out.println("Elige rol:  ");
                     int rolBaja=sc.nextInt();
                     Integer.parseInt(sc.nextLine());
@@ -74,15 +76,71 @@ public class Main {
                         System.out.println("rol no valido ");
                     }
                     System.out.println("Operacion de baja terminada");
+                    break;
 
 
+                case 3 :
+                System.out.println("Rol Del jugador a modificar:");
+                System.out.println("1. Portero");
+                System.out.println("2. Defensa");
+                System.out.println("3. Centrocampista");
+                System.out.println("4. Delantero");
+                    opcion=sc.nextInt();
+                System.out.print("Elige rol: ");
+                int rolMod = Integer.parseInt(sc.nextLine());
+                System.out.print("Nombre actual del jugador: ");
+                String nombreViejo = sc.nextLine();
+                System.out.print("Nuevo nombre del jugador: ");
+                String nombreNuevo = sc.nextLine();
 
+                if (rolMod == 1) {
+                    if (porteros.remove(nombreViejo)) {
+                        porteros.add(nombreNuevo);
+                        System.out.println("Jugador modificado.");
+                    } else {
+                        System.out.println("Ese jugador no existe en porteros.");
+                    }
+                } else if (rolMod == 2) {
+                    if (defensas.remove(nombreViejo)) {
+                        defensas.add(nombreNuevo);
+                        System.out.println("Jugador modificado.");
+                    } else {
+                        System.out.println("Ese jugador no existe en defensas.");
+                    }
+                } else if (rolMod == 3) {
+                    if (centrocampistas.remove(nombreViejo)) {
+                        centrocampistas.add(nombreNuevo);
+                        System.out.println("Jugador modificado.");
+                    } else {
+                        System.out.println("Ese jugador no existe en centrocampistas.");
+                    }
+                } else if (rolMod == 4) {
+                    if (delanteros.remove(nombreViejo)) {
+                        delanteros.add(nombreNuevo);
+                        System.out.println("Jugador modificado.");
+                    } else {
+                        System.out.println("Ese jugador no existe en delanteros.");
+                    }
+                } else {
+                    System.out.println("Rol no válido.");
+                }
+                break;
 
+                case 4:
+                    System.out.println(" Listado de jugadores");
+                    System.out.println("Porteros:        " + porteros);
+                    System.out.println("Defensas:        " + defensas);
+                    System.out.println("Centrocampistas: " + centrocampistas);
+                    System.out.println("Delanteros:      " + delanteros);
+                    break;
+
+                case 0:
+                    System.out.println("Fin del programa.");
+                    break;
+                default: System.out.println("Opción no válida.");
+                    break;
             }
-        }
-
-
-
-
+        } while (opcion != 0);
+        sc.close();
     }
 }
